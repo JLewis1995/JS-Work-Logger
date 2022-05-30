@@ -2,24 +2,23 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MATCHUPS } from '../utils/queries';
 
-const Home = () => {
+const Profile = () => {
+  // NEED TO MAKE THIS QUERY, QUERY BASED ON LOGGED IN USER
   const { loading, data } = useQuery(QUERY_MATCHUPS, {
     fetchPolicy: "no-cache"
   });
 
-  const matchupList = data?.matchups || [];
+  // .MATCHUPS WILL NEED TO CHANGE
+  const previousLogs = data?.matchups || [];
 
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
         <h1>Welcome to The Jobsite Work Logger!</h1>
       </div>
-      {/* ************************************************************************************************************************************** */}
-       {/* if not logged in ask for login */}
-       {/* if logged in show below */}
       <div className="card-footer text-center m-3">
         <h2>Ready to log todays work?</h2>
-        <Link to="/matchup">
+        <Link to="/createform">
           <button className="btn btn-lg btn-danger">Create worklog!</button>
         </Link>
       </div>
@@ -29,11 +28,11 @@ const Home = () => {
           <div>Loading...</div>
         ) : (
           <ul className="square">
-            {matchupList.map((matchup) => {
+            {previousLogs.map((logs) => {
               return (
-                <li key={matchup._id}>
-                  <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-                    {matchup.tech1} vs. {matchup.tech2}
+                <li key={logs._id}>
+                  <Link to={{ pathname: `/logs/${logs._id}` }}>
+                    <button className='btn btn-lg btn-danger'>{logs.date}</button>
                   </Link>
                 </li>
               );
@@ -45,4 +44,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Profile;
