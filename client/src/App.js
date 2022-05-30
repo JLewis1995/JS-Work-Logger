@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import Home from './pages/Home';
-import Matchup from './pages/Matchup';
-import Vote from './pages/Vote';
+import Landing from './pages/Landing';
+import LogIn from './pages/LogIn';
+import Register from './pages/Register';
+import CreateForm from './pages/CreateForm';
 import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -19,15 +21,23 @@ function App() {
           <Routes>
             <Route 
               path="/" 
-              element={<Home />}
+              element={<Landing />}
             />
             <Route 
-              path="/matchup" 
-              element={<Matchup />}
+              path="/login" 
+              element={<LogIn />}
             />
             <Route 
-              path="/matchup/:id" 
-              element={<Vote />}
+              path="/profile" 
+              element={<Profile />}
+            />
+             <Route 
+              path="/register" 
+              element={<Register />}
+            />
+             <Route 
+              path="/createform" 
+              element={<CreateForm />}
             />
             <Route 
               path="*"
