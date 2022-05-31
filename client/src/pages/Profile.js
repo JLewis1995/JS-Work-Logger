@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MATCHUPS } from '../utils/queries';
+import PreviousLogs from '../components/PreviousLog';
 
 const Profile = () => {
   // NEED TO MAKE THIS QUERY, QUERY BASED ON LOGGED IN USER
@@ -27,18 +28,10 @@ const Profile = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <ul className="square">
-            {previousLogs.map((logs) => {
-              return (
-                <li key={logs._id}>
-                  <Link to={{ pathname: `/logs/${logs._id}` }}>
-                    <button className='btn btn-lg btn-danger'>{logs.date}</button>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+         <PreviousLogs
+            logs={previousLogs}
+            />
+            )}
       </div>
     </div>
   );

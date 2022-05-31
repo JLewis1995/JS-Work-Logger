@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+// Query Previous Logs
 export const QUERY_TECH = gql`
   query tech {
     tech {
@@ -9,6 +10,7 @@ export const QUERY_TECH = gql`
   }
 `;
 
+// Do we need?
 export const QUERY_MATCHUPS = gql`
   query matchups($_id: String) {
     matchups(_id: $_id) {
