@@ -6,6 +6,14 @@ const Register = () => {
         </div>
         <div className="card-body m-5">
         <form> 
+        <div>
+            <label className='p-2'>What is your name?</label>
+            <input
+              type="text"
+              name='name'
+              placeholder='Please enter your name here'
+            />
+          </div>
           <div>
             <label className='p-2'>What is your email?</label>
             <input
@@ -24,6 +32,7 @@ const Register = () => {
           </div>
           <div>
             <label className='p-2'>What is your role?</label>
+            <br></br>
             <input
               type="radio"
               id="Electrician"
@@ -47,9 +56,9 @@ const Register = () => {
               value='Carpenter'
             />
             <label for='Carpenter'>Carpenter</label>
-            <br></br>
           </div>
           <div>
+          <br></br>
             <button type='submit' className='btn btn-danger m-1'>Register</button>
           </div>
           </form>
