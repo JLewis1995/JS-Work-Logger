@@ -4,7 +4,7 @@ const Landing = () => {
 
   return (
     <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
+      <div className="card-header text-center">
         <h1>Welcome to The Jobsite Work Logger!</h1>
       </div>
       <div className="card-footer text-center m-3">

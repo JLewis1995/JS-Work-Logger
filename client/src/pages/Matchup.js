@@ -43,7 +43,7 @@ const Matchup = () => {
 
   return (
     <div className="card bg-white card-rounded w-25">
-      <div className="card-header bg-dark text-center">
+      <div className="card-header text-center">
         <h1>Let's create a matchup!</h1>
       </div>
       <div className="card-body m-5">
