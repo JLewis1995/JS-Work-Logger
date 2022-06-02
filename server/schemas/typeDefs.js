@@ -20,7 +20,7 @@ const typeDefs = gql`
 
   type Query {
     employee: [Employee]
-    logs(_id: String): [Log]
+    log(_id: String): [Log]
   }
 
   type Mutation {
