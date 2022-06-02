@@ -2,6 +2,7 @@ import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { LOGIN } from '../utils/mutations';
+import {useState} from 'react';
 
 
 function Login(props) {
@@ -35,13 +36,15 @@ function Login(props) {
       </div>
       <div className="card-body m-5">
           {/* ADJUST FOLLOWING LINE ONCE AUTHENTICATION IS CODED */}
-      <form> 
+      <form onSubmit={handleFormSubmit}> 
         <div>
           <label className='p-2'>Email:</label>
           <input
             type="email"
             name='email'
             placeholder='Please enter your email here'
+            value={formState.email}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -50,6 +53,8 @@ function Login(props) {
             type="password"
             name='password'
             placeholder='Please enter your password here'
+            value={formState.password}
+            onChange={handleChange}
           />
         </div>
         <div>
