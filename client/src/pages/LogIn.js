@@ -1,5 +1,4 @@
 import { useMutation } from '@apollo/client';
-import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { LOGIN } from '../utils/mutations';
@@ -20,7 +19,6 @@ function Login(props) {
     } catch (e) {
       console.log(e);
     }}
-  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -30,7 +28,6 @@ function Login(props) {
     });
   };
 // ON SUBMIT OR LINK TO ROUTE? NEED TO VERIFY LOGIN WITH EITHER ACTION AND THEN GO TO PROFILE OR RETURN HERE WITH ERROR MESSAGE
-const Login = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">

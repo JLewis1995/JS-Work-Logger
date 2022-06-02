@@ -14,7 +14,7 @@ export const LOGIN = gql`
 
 
 // Create User
-export const CREATE_MATCHUP = gql`
+export const ADD_USER = gql`
   mutation createMatchup($tech1: String!, $tech2: String!) {
     createMatchup(tech1: $tech1, tech2: $tech2) {
       _id
