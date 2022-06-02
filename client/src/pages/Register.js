@@ -33,7 +33,7 @@ function Register(props) {
 // const Register = () => {
     return (
       <div className="card bg-white card-rounded w-50">
-        <div className="card-header bg-dark text-center">
+        <div className="card-header text-center">
           <h1>Please Complete the following to register</h1>
         </div>
         <div className="card-body m-5">

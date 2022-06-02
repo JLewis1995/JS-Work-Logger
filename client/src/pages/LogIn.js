@@ -31,7 +31,7 @@ function Login(props) {
 // ON SUBMIT OR LINK TO ROUTE? NEED TO VERIFY LOGIN WITH EITHER ACTION AND THEN GO TO PROFILE OR RETURN HERE WITH ERROR MESSAGE
   return (
     <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
+      <div className="card-header text-center">
         <h1>Please Log In</h1>
       </div>
       <div className="card-body m-5">
