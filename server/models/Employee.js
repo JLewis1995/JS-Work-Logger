@@ -18,7 +18,7 @@ const employeeSchema = new Schema({
     minlength: 8,
   },
   role: {
-    type: String
+    type: String,
     required: true,
   },
 });
