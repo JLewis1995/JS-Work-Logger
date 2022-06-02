@@ -83,7 +83,7 @@ const Register = () => {
               type="radio"
               id="Electrician"
               name='role'
-              value={formState.role}
+              value="Electrician"
               onChange={handleChange}
             />
             <label for='Electrician'>Electrician</label>
@@ -92,7 +92,7 @@ const Register = () => {
               type="radio"
               id="Plumber"
               name='role'
-              value={formState.role}
+              value="Plumber"
               onChange={handleChange}
             />
             <label for='Plumber'>Plumber</label>
@@ -101,7 +101,7 @@ const Register = () => {
               type="radio"
               id="Carpenter"
               name='role'
-              value={formState.role}
+              value="Carpenter"
               onChange={handleChange}
             />
             <label for='Carpenter'>Carpenter</label>
