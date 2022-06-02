@@ -37,13 +37,15 @@ function Register(props) {
           <h1>Please Complete the following to register</h1>
         </div>
         <div className="card-body m-5">
-        <form> 
+        <form onSubmit={handleFormSubmit}> 
         <div>
             <label className='p-2'>What is your name?</label>
             <input
               type="text"
               name='name'
               placeholder='Please enter your name here'
+              value={formState.name}
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -52,6 +54,8 @@ function Register(props) {
               type="email"
               name='email'
               placeholder='Please enter your email here'
+              value={formState.email}
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -60,6 +64,8 @@ function Register(props) {
               type="password"
               name='password'
               placeholder='Please enter your password here'
+              value={formState.password}
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -69,7 +75,8 @@ function Register(props) {
               type="radio"
               id="Electrician"
               name='role'
-              value='Electrician'
+              value={formState.role}
+              onChange={handleChange}
             />
             <label for='Electrician'>Electrician</label>
             <br></br>
@@ -77,7 +84,8 @@ function Register(props) {
               type="radio"
               id="Plumber"
               name='role'
-              value='Plumber'
+              value={formState.role}
+              onChange={handleChange}
             />
             <label for='Plumber'>Plumber</label>
             <br></br>
@@ -85,7 +93,8 @@ function Register(props) {
               type="radio"
               id="Carpenter"
               name='role'
-              value='Carpenter'
+              value={formState.role}
+              onChange={handleChange}
             />
             <label for='Carpenter'>Carpenter</label>
           </div>
