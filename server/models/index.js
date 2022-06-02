@@ -1,4 +1,4 @@
 const Employee = require('./Employee');
-const Note = require('./Note');
+const Log = require('./Log');
 
-module.exports = { Employee, Note };
+module.exports = { Employee, Log };
