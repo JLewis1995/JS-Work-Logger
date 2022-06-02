@@ -53,6 +53,7 @@ const CreateForm = () => {
               type="text"
               name='name'
               onChange={handleChange}
+              value={formState.name}
             />
           </div>
           <div>
@@ -61,6 +62,7 @@ const CreateForm = () => {
               type="number"
               name='hours'
               onChange={handleChange}
+              value={formState.hours}
             />
           </div>
           <div>
@@ -70,6 +72,7 @@ const CreateForm = () => {
               type="text"
               name='role'
               onChange={handleChange}
+              value={formState.role}
             />
           </div>
           <div>
@@ -78,6 +81,7 @@ const CreateForm = () => {
               type="text"
               name='site'
               onChange={handleChange}
+              value={formState.site}
             />
           </div>
           <div>
