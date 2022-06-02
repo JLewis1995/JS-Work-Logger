@@ -1,28 +1,20 @@
-const { Employee, Note } = require('../models');
+const { Employee, Log } = require('../models');
 
 const resolvers = {
   Query: {
     employee: async () => {
       return Employee.find({});
     },
-    notes: async (parent, { _id }) => {
+    log: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
-      return Note.find(params);
+      return Log.find(params);
     },
   },
   Mutation: {
-    createNote: async (parent, args) => {
-      const note = await Note.create(args);
-      return note;
+    createLog: async (parent, args) => {
+      const log = await Log.create(args);
+      return log;
     },
-    // createVote: async (parent, { _id, techNum }) => {
-    //   const vote = await Matchup.findOneAndUpdate(
-    //     { _id },
-    //     { $inc: { [`tech${techNum}_votes`]: 1 } },
-    //     { new: true }
-    //   );
-    //   return vote;
-    // },
   },
 };
 
