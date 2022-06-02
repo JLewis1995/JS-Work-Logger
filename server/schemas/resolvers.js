@@ -5,9 +5,8 @@ const resolvers = {
     employee: async () => {
       return Employee.find({});
     },
-    log: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Log.find(params);
+    log: async () => {
+      return Log.find({});
     },
   },
   Mutation: {
