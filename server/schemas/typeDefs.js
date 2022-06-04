@@ -13,15 +13,15 @@ const typeDefs = gql`
   type Log {
     _id: ID!
     name: String!
+    hours_worked: Int!
     role: String!
     job_site: Int!
-    hours_worked: Int!
     comments: String
   }
 
   type Auth {
     token: ID!
-    user: User
+    employee: Employee
   }
 
   type Query {
@@ -30,7 +30,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addEmployee(email: String!, password: String!): Auth
+    addEmployee(name: String!, email: String!, password: String!, role: String!): Auth
     login(email: String!, password: String!): Auth
     createLog(name: String!, role: String!, job_site: Int!, hours_worked: Int!, comments: String!): Log
   }

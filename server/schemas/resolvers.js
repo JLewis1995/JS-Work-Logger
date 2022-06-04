@@ -4,8 +4,8 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
   Query: {
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
+    employee: async (parent, { username }) => {
+      return Employee.findOne({ email })
     },
     log: async () => {
       return Log.find({});
@@ -16,13 +16,13 @@ const resolvers = {
       const log = await Log.create(args);
       return log;
     },
-    addUser: async (parent, { username, email, password }) => {
-      const user = await Employee.create({ username, email, password });
+    addEmployee: async (parent, { email, password }) => {
+      const user = await Employee.create({email, password });
       const token = signToken(user);
       return { token, user };
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const user = await Employee.findOne({ email });
 
       if (!user) {
         throw new AuthenticationError('No user found with this email address');
