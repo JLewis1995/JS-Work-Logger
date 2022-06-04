@@ -84,7 +84,7 @@ const Register = () => {
               onChange={handleChange}
             />
           </div>
-          <div>
+          {/* <div>
             <label className='p-2'>What is your role?</label>
             <br></br>
             <input
@@ -113,7 +113,7 @@ const Register = () => {
               onChange={handleChange}
             />
             <label>Carpenter</label>
-          </div>
+          </div> */}
           <div>
           <br></br>
             <button type='submit' className='btn btn-danger m-1'>Register</button>
