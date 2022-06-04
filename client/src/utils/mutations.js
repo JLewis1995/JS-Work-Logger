@@ -25,7 +25,7 @@ export const LOGIN = gql`
 `;
 
 // Create Work Log
-export const CREATE_FORM = gql`
+export const ADD_LOG = gql`
   mutation createVote($_id: String!, $techNum: Int!) {
     createVote(_id: $_id, techNum: $techNum) {
       _id
