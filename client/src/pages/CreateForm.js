@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_LOG } from "../utils/mutations";
+import { useNavigate } from 'react-router-dom';
 
 const CreateForm = () => {
   const [formState, setFormState] = useState({
@@ -10,6 +11,8 @@ const CreateForm = () => {
     job_site: "",
     comments: "",
   });
+
+  let navigate = useNavigate();
 
   const [createLog, { error, data }] = useMutation(ADD_LOG);
 
@@ -40,6 +43,8 @@ const CreateForm = () => {
         job_site: "",
         comments: "",
       });
+
+      navigate(`/profile`)
     } catch (err) {
       console.error(err);
     }
