@@ -33,7 +33,7 @@ const CreateForm = () => {
 
     try {
       const { data } = await createLog({
-        variables: { ...formState },
+        variables: { name: formState.name, hours_worked: parseInt(formState.hours_worked), role: formState.role, job_site: parseInt(formState.job_site), comments: formState.comments},
       });
 
       setFormState({
