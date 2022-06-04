@@ -7,7 +7,7 @@ const logSchema = new Schema({
     required: true,
   },
   hours_worked: {
-    type: String,
+    type: Number,
     required: true,
   },
   role: {
@@ -15,7 +15,7 @@ const logSchema = new Schema({
     required: true,
   },
   job_site: {
-    type: String,
+    type: Number,
     required: true,
   },
   comments: {
