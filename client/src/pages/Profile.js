@@ -10,7 +10,8 @@ const Profile = () => {
   });
 
   // .MATCHUPS WILL NEED TO CHANGE
-  const previousLogs = data?.logs || [];
+  const previousLogs = data || [];
+  console.log(previousLogs);
 
   return (
     <div className="card bg-white card-rounded w-50">
