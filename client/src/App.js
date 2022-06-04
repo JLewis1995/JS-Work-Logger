@@ -8,6 +8,7 @@ import {
 } from '@apollo/client';
 import Landing from './pages/Landing';
 import LogIn from './pages/LogIn';
+import Nav from './Nav';
 import Register from './pages/Register';
 import CreateForm from './pages/CreateForm';
 import NotFound from './pages/NotFound';
@@ -40,6 +41,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Nav />
       <Router>
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Routes>
