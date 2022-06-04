@@ -10,7 +10,7 @@ const Profile = () => {
   });
 
   // .MATCHUPS WILL NEED TO CHANGE
-  const previousLogs = data?.matchups || [];
+  const previousLogs = data?.logs || [];
 
   return (
     <div className="card bg-white card-rounded w-50">

@@ -1,17 +1,18 @@
-import { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { CREATE_FORM } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_LOG } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 const CreateForm = () => {
   const [formState, setFormState] = useState({
-    name: '',
-    hours_worked: '',
-    role: '',
-    job_site: '',
-    comments: '',
+    name: "",
+    hours_worked: "",
+    role: "",
+    job_site: "",
+    comments: "",
   });
-  const [createForm, { error, data }] = useMutation(CREATE_FORM);
+
+  const [createLog, { error, data }] = useMutation(ADD_LOG);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -26,16 +27,21 @@ const CreateForm = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
-      const { data } = await createForm({
+      const { data } = await createLog({
         variables: { ...formState },
       });
 
-      Auth.login(data.createForm.token);
-    } catch (e) {
-      console.error(e);
+      setFormState({
+        name: "",
+        hours_worked: "",
+        role: "",
+        job_site: "",
+        comments: "",
+      });
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -48,44 +54,53 @@ const CreateForm = () => {
         <form onSubmit={handleFormSubmit}>
           <div>
             {/* Auto fill with user's name */}
-            <label className='p-2'>Name:</label>
+            <label className="p-2">Name:</label>
             <input
               type="text"
-              name='name'
+              name="name"
               onChange={handleChange}
               value={formState.name}
             />
           </div>
           <div>
-            <label className='p-2'>Hours Worked:</label>
+            <label className="p-2">Hours Worked:</label>
             <input
               type="number"
-              name='hours'
+              name="hours"
               onChange={handleChange}
-              value={formState.hours}
+              value={formState.hours_worked}
             />
           </div>
           <div>
-            {/* auto fill with user's role */}
-            <label className='p-2'>Role:</label>
+            <label className="p-2">Role:</label>
             <input
               type="text"
-              name='role'
+              name="role"
               onChange={handleChange}
               value={formState.role}
             />
           </div>
           <div>
-            <label className='p-2'>Job Site:</label>
+            <label className="p-2">Job Site:</label>
             <input
               type="text"
-              name='site'
+              name="site"
               onChange={handleChange}
-              value={formState.site}
+              value={formState.job_site}
             />
           </div>
           <div>
-            <button type='submit' className='btn btn-danger m-1'>Submit Log</button>
+            <label className="p-2">Comments:</label>
+            <textarea
+              name="comments"
+              onChange={handleChange}
+              value={formState.comments}
+            />
+          </div>
+          <div>
+            <button type="submit" className="btn btn-danger m-1">
+              Submit Log
+            </button>
           </div>
         </form>
       </div>
