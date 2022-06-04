@@ -4,23 +4,34 @@ const typeDefs = gql`
   type Employee {
     _id: ID!
     name: String!
+    email: String!
+    password: String!
+    logs: [Log]
   }
 
-  type Note {
+  type Log {
     _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
+    name: String!
+    hours_worked: Int!
+    role: String!
+    job_site: String!
+    comments: String
+  }
+
+  type Auth {
+    token: ID!
+    employee: Employee
   }
 
   type Query {
     employee: [Employee]
-    notes(_id: String): [Note]
+    log(_id: String): [Log]
   }
 
   type Mutation {
-    createNote(tech1: String!, tech2: String!): Note
+    addEmployee(name: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+    addLog(name: String!, hours_worked: String!, role: String!, job_site: String!, comments: String): Log
   }
 `;
 

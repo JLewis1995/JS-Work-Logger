@@ -1,28 +1,44 @@
-const { Employee, Note } = require('../models');
+const { Employee, Log } = require('../models');
+const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
   Query: {
-    employee: async () => {
-      return Employee.find({});
+    employee: async (parent, { username }) => {
+      return Employee.findOne({ email })
     },
-    notes: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Note.find(params);
+    log: async () => {
+      return Log.find({});
     },
   },
   Mutation: {
-    createNote: async (parent, args) => {
-      const note = await Note.create(args);
-      return note;
+    addLog: async (parent, args) => {
+      console.log(`this is the args: ${args}`);
+      const log = await Log.create(args);
+      return log;
     },
-    // createVote: async (parent, { _id, techNum }) => {
-    //   const vote = await Matchup.findOneAndUpdate(
-    //     { _id },
-    //     { $inc: { [`tech${techNum}_votes`]: 1 } },
-    //     { new: true }
-    //   );
-    //   return vote;
-    // },
+    addEmployee: async (parent, { name, email, password }) => {
+      const user = await Employee.create({name, email, password });
+      const token = signToken(user);
+      return { token, user };
+    },
+    login: async (parent, { email, password }) => {
+      const user = await Employee.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('No user found with this email address');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
+    },
   },
 };
 
