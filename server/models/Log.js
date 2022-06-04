@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+
 const logSchema = new Schema({
   name: {
     type: String,
@@ -11,9 +12,11 @@ const logSchema = new Schema({
   },
   role: {
     type: String,
+    required: true,
   },
   job_site: {
     type: String,
+    required: true,
   },
   comments: {
     type: String,

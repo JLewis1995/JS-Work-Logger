@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_LOG } from "../utils/mutations";
-import Auth from "../utils/auth";
 
 const CreateForm = () => {
   const [formState, setFormState] = useState({
@@ -27,6 +26,7 @@ const CreateForm = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
 
     try {
       const { data } = await createLog({
@@ -66,7 +66,7 @@ const CreateForm = () => {
             <label className="p-2">Hours Worked:</label>
             <input
               type="number"
-              name="hours"
+              name="hours_worked"
               onChange={handleChange}
               value={formState.hours_worked}
             />
@@ -84,7 +84,7 @@ const CreateForm = () => {
             <label className="p-2">Job Site:</label>
             <input
               type="text"
-              name="site"
+              name="job_site"
               onChange={handleChange}
               value={formState.job_site}
             />
