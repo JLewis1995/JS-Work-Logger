@@ -12,7 +12,8 @@ const resolvers = {
     },
   },
   Mutation: {
-    createLog: async (parent, args) => {
+    addLog: async (parent, args) => {
+      console.log(`this is the args: ${args}`);
       const log = await Log.create(args);
       return log;
     },
