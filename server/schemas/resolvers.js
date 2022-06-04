@@ -16,8 +16,8 @@ const resolvers = {
       const log = await Log.create(args);
       return log;
     },
-    addEmployee: async (parent, { email, password }) => {
-      const user = await Employee.create({email, password });
+    addEmployee: async (parent, { name, email, password }) => {
+      const user = await Employee.create({name, email, password });
       const token = signToken(user);
       return { token, user };
     },

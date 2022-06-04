@@ -19,10 +19,6 @@ const employeeSchema = new Schema({
     required: true,
     minlength: 8,
   },
-  role: {
-    type: String,
-    required: true,
-  },
   logs: [
     {
       type: Schema.Types.ObjectId,
