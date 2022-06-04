@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import { ADD_EMPLOYEE } from '../utils/mutations';
 
 const Register = () => {
   const [formState, setFormState] = useState({
@@ -10,7 +10,7 @@ const Register = () => {
     email: '',
     password: '',
   });
-  const [adduser, { error, data }] = useMutation(ADD_USER);
+  const [addEmployee, { error, data }] = useMutation(ADD_EMPLOYEE);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -28,11 +28,11 @@ const Register = () => {
     console.log(formState);
 
     try {
-      const { data } = await adduser({
+      const { data } = await addEmployee({
         variables: { ...formState },
       });
 
-      Auth.login(data.adduser.token);
+      Auth.login(data.addEmployee.token);
     } catch (e) {
       console.error(e);
     }
@@ -45,6 +45,15 @@ const Register = () => {
           <h1>Please Complete the following to register</h1>
         </div>
         <div className="card-body m-5">
+        
+          {data ? (
+              <p>
+                You did it!!{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+        
+        
         <form onSubmit={handleFormSubmit}> 
         <div>
             <label className='p-2'>What is your name?</label>
@@ -111,6 +120,15 @@ const Register = () => {
             <button type='submit' className='btn btn-danger m-1'>Register</button>
           </div>
           </form>
+        
+        )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+        
         </div>
       </div>
     );
