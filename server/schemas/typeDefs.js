@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     role: String!
+    logs: [Log]
   }
 
   type Log {
@@ -18,12 +19,19 @@ const typeDefs = gql`
     comments: String
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
     employee: [Employee]
     log(_id: String): [Log]
   }
 
   type Mutation {
+    addEmployee(email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
     createLog(name: String!, role: String!, job_site: Int!, hours_worked: Int!, comments: String!): Log
   }
 `;

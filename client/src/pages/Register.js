@@ -38,7 +38,6 @@ const Register = () => {
     }
   };
 
-// const Register = () => {
     return (
       <div className="card bg-white card-rounded w-50">
         <div className="card-header text-center">
@@ -95,7 +94,7 @@ const Register = () => {
               value="Electrician"
               onChange={handleChange}
             />
-            <label for='Electrician'>Electrician</label>
+            <label>Electrician</label>
             <br></br>
             <input
               type="radio"
@@ -104,7 +103,7 @@ const Register = () => {
               value="Plumber"
               onChange={handleChange}
             />
-            <label for='Plumber'>Plumber</label>
+            <label>Plumber</label>
             <br></br>
             <input
               type="radio"
@@ -113,7 +112,7 @@ const Register = () => {
               value="Carpenter"
               onChange={handleChange}
             />
-            <label for='Carpenter'>Carpenter</label>
+            <label>Carpenter</label>
           </div>
           <div>
           <br></br>
