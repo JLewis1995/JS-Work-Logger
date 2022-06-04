@@ -19,7 +19,7 @@ export const QUERY_EMPLOYEE = gql`
 
 export const QUERY_LOGS = gql`
   query getLogs {
-    logs {
+    log {
       _id
       name
       hours_worked
