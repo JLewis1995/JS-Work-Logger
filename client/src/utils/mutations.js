@@ -6,7 +6,7 @@ export const ADD_EMPLOYEE = gql`
       token
       employee {
         _id
-        name
+        email
       }
     }
   }
@@ -18,6 +18,7 @@ export const LOGIN = gql`
       token
       employee {
         _id
+        email
       }
     }
   }

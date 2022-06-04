@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
+import { QUERY_LOGS } from '../utils/queries';
 import PreviousLogs from '../components/PreviousLog';
 
 const Profile = () => {
   // NEED TO MAKE THIS QUERY, QUERY BASED ON LOGGED IN USER
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
+  const { loading, data } = useQuery(QUERY_LOGS, {
     fetchPolicy: "no-cache"
   });
 
