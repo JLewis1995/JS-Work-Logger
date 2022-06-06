@@ -19,12 +19,6 @@ const employeeSchema = new Schema({
     required: true,
     minlength: 8,
   },
-  logs: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Log',
-    }
-  ]
 });
 
 employeeSchema.pre('save', async function (next) {

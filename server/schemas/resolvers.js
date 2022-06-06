@@ -4,11 +4,37 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
   Query: {
-    employee: async (parent, { username }) => {
-      return Employee.findOne({ email })
-    },
+    // employee: async (parent, { email }) => {
+    //   return Employee.findOne({ email })
+    // },
     log: async () => {
       return Log.find({});
+    },
+    employee: async () => {
+      return Employee.find({});
+    },
+    me: async (parent, { email }) => {
+      if (email) {
+        const results = await Employee.findOne({ email });
+        if (results) {
+          return results;
+        }
+        return new AuthenticationError('No results for me for: ' + email)
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    meLogs: async (parent, { email }) => {
+      if (email) {
+        const user = await Employee.findOne({ email });
+        if (user) {
+          const logs = await Log.find({ name: user.name });
+          if (logs) {
+            return logs;
+          }
+        }
+        return new AuthenticationError('Null result in meLogs for: ' + email)
+      }
+      throw new AuthenticationError('No logs for me!');
     },
   },
   Mutation: {
@@ -18,7 +44,7 @@ const resolvers = {
       return log;
     },
     addEmployee: async (parent, { name, email, password }) => {
-      const user = await Employee.create({name, email, password });
+      const user = await Employee.create({ name, email, password });
       const token = signToken(user);
       return { token, user };
     },

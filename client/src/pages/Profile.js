@@ -1,17 +1,33 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_LOGS } from '../utils/queries';
+import { QUERY_LOGS_USER, QUERY_ME_LOGS } from '../utils/queries';
 import PreviousLogs from '../components/PreviousLog';
+import Auth from '../utils/auth';
 
 const Profile = () => {
   // NEED TO MAKE THIS QUERY, QUERY BASED ON LOGGED IN USER
-  const { loading, data } = useQuery(QUERY_LOGS, {
-    fetchPolicy: "no-cache"
+  const user = Auth.getProfile()
+  // console.log('user', user);
+
+  let previousLogs = [];
+
+  const loading = false;
+
+  const meLogsResult = useQuery(QUERY_ME_LOGS, {
+    fetchPolicy: "no-cache",
+    variables: { email: user.data.email },
   });
 
+  // console.log('meLogsResult', meLogsResult);
+
+  if (meLogsResult && meLogsResult.data && meLogsResult.data.meLogs) {
+    previousLogs = meLogsResult.data.meLogs;
+    // console.log('meLogs', meLogsResult.data.meLogs);
+  }
+
   // .MATCHUPS WILL NEED TO CHANGE
-  const previousLogs = data || [];
-  console.log(previousLogs);
+  // console.log(previousLogs);
 
   return (
     <div className="card bg-white card-rounded w-50">
@@ -29,10 +45,10 @@ const Profile = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-         <PreviousLogs
+          <PreviousLogs
             logs={previousLogs}
-            />
-            )}
+          />
+        )}
       </div>
     </div>
   );
