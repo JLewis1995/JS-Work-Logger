@@ -1,12 +1,12 @@
 const PreviousLogs = ({ logs }) => {
-  if (!logs.log.length) {
+  if (!logs || !logs.length) {
     return <h3>No Previous Logs</h3>;
   }
 
   return (
     <div>
       {logs &&
-        logs.log.map((log) => (
+        logs.map((log) => (
           <div className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
               Date goes here

@@ -6,7 +6,6 @@ const typeDefs = gql`
     name: String!
     email: String!
     password: String!
-    logs: [Log]
   }
 
   type Log {
@@ -24,8 +23,10 @@ const typeDefs = gql`
   }
 
   type Query {
+    log: [Log]
     employee: [Employee]
-    log(_id: String): [Log]
+    me(email: String!): Employee
+    meLogs(email: String!): [Log]
   }
 
   type Mutation {

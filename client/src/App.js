@@ -9,6 +9,7 @@ import {
 import Landing from './pages/Landing';
 import LogIn from './pages/LogIn';
 import Nav from './Nav';
+import { UserProvider } from './User';
 import Register from './pages/Register';
 import CreateForm from './pages/CreateForm';
 import NotFound from './pages/NotFound';
@@ -40,6 +41,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    <UserProvider >
     <ApolloProvider client={client}>
       <Nav />
       <Router>
@@ -73,6 +75,7 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+    </UserProvider>
   );
 }
 

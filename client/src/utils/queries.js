@@ -1,10 +1,11 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_EMPLOYEE = gql`
-  query employee($email: String!) {
-    employee(email: $email) {
+  query me($email: String!) {
+    me(email: $email) {
       _id
       email
+      name
       logs {
         _id
         name
@@ -26,6 +27,38 @@ export const QUERY_LOGS = gql`
       role
       job_site
       comments
+    }
+  }
+`;
+
+export const QUERY_ME_LOGS = gql`
+query meLogs($email: String!) {
+  meLogs(email: $email) {
+    _id
+    name
+    hours_worked
+    role
+    job_site
+    comments
+  }
+}
+`;
+
+export const QUERY_LOGS_USER = gql`
+query me($email: String!) {
+  me(email: $email) {
+    _id
+    email
+    name
+  }
+}
+`;
+
+export const QUERY_NAMES = gql`
+  query getNames {
+    employee {
+      name
+      email
     }
   }
 `;
