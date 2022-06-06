@@ -14,6 +14,7 @@ import Register from './pages/Register';
 import CreateForm from './pages/CreateForm';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
+import Protected from './components/Protected';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
@@ -43,8 +44,8 @@ function App() {
   return (
     <UserProvider >
     <ApolloProvider client={client}>
-      <Nav />
       <Router>
+      <Nav />
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Routes>
             <Route 
@@ -57,7 +58,7 @@ function App() {
             />
             <Route 
               path="/profile" 
-              element={<Profile />}
+              element={<Protected><Profile /> </Protected>}
             />
              <Route 
               path="/register" 

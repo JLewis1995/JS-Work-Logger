@@ -4,11 +4,11 @@ import { QUERY_LOGS } from '../utils/queries';
 import { QUERY_LOGS_USER, QUERY_ME_LOGS } from '../utils/queries';
 import PreviousLogs from '../components/PreviousLog';
 import Auth from '../utils/auth';
+import { Navigate } from "react-router-dom"
 
 const Profile = () => {
-  // NEED TO MAKE THIS QUERY, QUERY BASED ON LOGGED IN USER
+
   const user = Auth.getProfile()
-  // console.log('user', user);
 
   let previousLogs = [];
 
@@ -19,15 +19,11 @@ const Profile = () => {
     variables: { email: user.data.email },
   });
 
-  // console.log('meLogsResult', meLogsResult);
-
   if (meLogsResult && meLogsResult.data && meLogsResult.data.meLogs) {
     previousLogs = meLogsResult.data.meLogs;
-    // console.log('meLogs', meLogsResult.data.meLogs);
   }
 
   // .MATCHUPS WILL NEED TO CHANGE
-  // console.log(previousLogs);
 
   return (
     <div className="card bg-white card-rounded w-50">
