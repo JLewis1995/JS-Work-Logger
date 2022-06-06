@@ -12,10 +12,10 @@ const PreviousLogs = ({ logs }) => {
               Date goes here
             </h4>
             <div className="card-body bg-light p-2">
-              <p>{log.name}</p>
-              <p>{log.role}</p>
-              <p>{log.hours}</p>
-              <p>{log.site}</p>
+              <span className="p-3">Name: {log.name}</span>
+              <span className="p-3">Role: {log.role}</span>
+              <span className="p-3">Hours Worked: {log.hours_worked}</span>
+              <span className="p-3">Job Site: {log.job_site}</span>
             </div>
           </div>
         ))}

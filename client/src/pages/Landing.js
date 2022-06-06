@@ -10,10 +10,10 @@ const Landing = () => {
       <div className="card-footer text-center m-3">
         <h2>Ready to log todays work?</h2>
         <Link to="/login">
-          <button className="btn btn-lg btn-danger">Login</button>
+          <button className="btn m-2 btn-lg btn-danger">Login</button>
         </Link>
         <Link to="/register">
-          <button className="btn btn-lg btn-danger">Register</button>
+          <button className="btn m-2 btn-lg btn-danger">Register</button>
         </Link>
       </div>
     </div>
