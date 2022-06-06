@@ -44,10 +44,9 @@ query meLogs($email: String!) {
 }
 `;
 
-export const QUERY_LOGS_USER = gql`
-query me($email: String!) {
-  me(email: $email) {
-    _id
+export const QUERY_ME = gql`
+query me {
+  me {
     email
     name
   }
