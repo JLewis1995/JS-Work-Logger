@@ -25,7 +25,7 @@ const typeDefs = gql`
   type Query {
     log: [Log]
     employee: [Employee]
-    me(email: String!): Employee
+    me: Employee
     meLogs(email: String!): [Log]
   }
 

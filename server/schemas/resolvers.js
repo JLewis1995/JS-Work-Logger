@@ -13,15 +13,15 @@ const resolvers = {
     employee: async () => {
       return Employee.find({});
     },
-    me: async (parent, { email }) => {
-      if (email) {
-        const results = await Employee.findOne({ email });
+    me: async (parent, args, context) => {
+      if (context && context.employee && context.employee.email) {
+        const results = await Employee.findOne({ email: context.employee.email });
         if (results) {
           return results;
         }
-        return new AuthenticationError('No results for me for: ' + email)
+        return new AuthenticationError('No results for me for: ' + context.employee.email)
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError('You need to be logged in!' + JSON.stringify(context.employee));
     },
     meLogs: async (parent, { email }) => {
       if (email) {

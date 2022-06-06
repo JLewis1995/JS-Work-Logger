@@ -1,6 +1,18 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from './utils/queries';
 
 const Nav = () => {
+    const meResult = useQuery(QUERY_ME, {
+        fetchPolicy: "no-cache",
+      });
+
+    let userInfo = {};
+
+    if (meResult && meResult.data && meResult.data.me ) {
+        userInfo = meResult.data.me
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="#">Jobsite Work Logger</a>
@@ -17,7 +29,7 @@ const Nav = () => {
                     </li>
                 </ul>
                 <span className="navbar-text">
-                    Welcome, User Blah 
+                    Welcome, {userInfo.name}
                 </span>
             </div>
         </nav>
