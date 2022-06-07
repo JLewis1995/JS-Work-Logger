@@ -1,4 +1,4 @@
-const Employee = require('./Employee');
-const Log = require('./Log');
+const Employee = require("./Employee");
+const Log = require("./Log");
 
 module.exports = { Employee, Log };

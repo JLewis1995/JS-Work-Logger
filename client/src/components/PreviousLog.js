@@ -1,4 +1,5 @@
 const PreviousLogs = ({ logs }) => {
+  // if no previous logs, display h3 heading with that fact
   if (!logs || !logs.length) {
     return <h3>No Previous Logs</h3>;
   }
@@ -7,6 +8,7 @@ const PreviousLogs = ({ logs }) => {
     <div>
       {logs &&
         logs.map((log) => (
+          // Card to display each previous work log
           <div className="card mb-3">
             <div className="card-body bg-light p-2">
               <span className="p-3">Name: {log.name}</span>

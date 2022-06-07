@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_LOG } from "../utils/mutations";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const CreateForm = () => {
   const [formState, setFormState] = useState({
@@ -29,13 +29,18 @@ const CreateForm = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-
     try {
+      // use ADD_LOG mutation to create database entry with current form state data
       const { data } = await createLog({
-        variables: { name: formState.name, hours_worked: parseInt(formState.hours_worked), role: formState.role, job_site: parseInt(formState.job_site), comments: formState.comments},
+        variables: {
+          name: formState.name,
+          hours_worked: parseInt(formState.hours_worked),
+          role: formState.role,
+          job_site: parseInt(formState.job_site),
+          comments: formState.comments,
+        },
       });
-
+      // reset form state
       setFormState({
         name: "",
         hours_worked: "",
@@ -43,8 +48,8 @@ const CreateForm = () => {
         job_site: "",
         comments: "",
       });
-
-      navigate(`/profile`)
+      // return to profile after form submission
+      navigate(`/profile`);
     } catch (err) {
       console.error(err);
     }
@@ -58,7 +63,6 @@ const CreateForm = () => {
       <div className="card-body m-5">
         <form onSubmit={handleFormSubmit}>
           <div>
-            {/* Auto fill with user's name */}
             <label className="p-2">Name:</label>
             <input
               type="text"

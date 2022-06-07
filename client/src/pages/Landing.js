@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Landing = () => {
-
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header text-center">

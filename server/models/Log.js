@@ -1,5 +1,4 @@
-const { Schema, model } = require('mongoose');
-
+const { Schema, model } = require("mongoose");
 
 const logSchema = new Schema({
   name: {
@@ -21,9 +20,9 @@ const logSchema = new Schema({
   comments: {
     type: String,
     required: false,
-  }
+  },
 });
 
-const Log = model('Log', logSchema);
+const Log = model("Log", logSchema);
 
 module.exports = Log;
