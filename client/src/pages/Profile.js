@@ -9,6 +9,7 @@ import { Navigate } from "react-router-dom"
 const Profile = () => {
 
   const user = Auth.getProfile()
+  console.log(user);
 
   let previousLogs = [];
 
@@ -16,6 +17,7 @@ const Profile = () => {
     fetchPolicy: "no-cache",
     variables: { email: user.data.email },
   });
+  console.log(meLogsResult);
 
   if (meLogsResult && meLogsResult.data && meLogsResult.data.meLogs) {
     previousLogs = meLogsResult.data.meLogs;
