@@ -24,7 +24,6 @@ export const LOGIN = gql`
   }
 `;
 
-// Create Work Log
 export const ADD_LOG = gql`
   mutation addLog($name: String!, $hours_worked: Int!, $role: String!, $job_site: Int!, $comments: String) {
     addLog(name: $name, hours_worked: $hours_worked, role: $role, job_site: $job_site, comments: $comments) {

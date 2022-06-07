@@ -1,15 +1,11 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_LOGS } from '../utils/queries';
-import { QUERY_LOGS_USER, QUERY_ME_LOGS } from '../utils/queries';
-import PreviousLogs from '../components/PreviousLog';
-import Auth from '../utils/auth';
-import { Navigate } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME_LOGS } from "../utils/queries";
+import PreviousLogs from "../components/PreviousLog";
+import Auth from "../utils/auth";
 
 const Profile = () => {
-
-  const user = Auth.getProfile()
-  console.log(user);
+  const user = Auth.getProfile();
 
   let previousLogs = [];
 
@@ -17,7 +13,6 @@ const Profile = () => {
     fetchPolicy: "no-cache",
     variables: { email: user.data.email },
   });
-  console.log(meLogsResult);
 
   if (meLogsResult && meLogsResult.data && meLogsResult.data.meLogs) {
     previousLogs = meLogsResult.data.meLogs;
@@ -36,9 +31,7 @@ const Profile = () => {
       </div>
       <div className="card-body m-5">
         <h2>Here are your previous days' logs:</h2>
-          <PreviousLogs
-            logs={previousLogs}
-          />
+        <PreviousLogs logs={previousLogs} />
       </div>
     </div>
   );
