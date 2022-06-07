@@ -8,9 +8,6 @@ const PreviousLogs = ({ logs }) => {
       {logs &&
         logs.map((log) => (
           <div className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
-              Date goes here
-            </h4>
             <div className="card-body bg-light p-2">
               <span className="p-3">Name: {log.name}</span>
               <span className="p-3">Role: {log.role}</span>
