@@ -1,11 +1,12 @@
 import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { LOGIN } from '../utils/mutations';
 import {useState} from 'react';
 
 
 const Login = (props) => {
+  let navigate = useNavigate();
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN);
 
@@ -27,7 +28,13 @@ const Login = (props) => {
       const { data } = await login({
         variables: { ...formState },
       });
-      Auth.login(data.login.token);
+      const loggedIn = Auth.login(data.login.token);
+      if  (!loggedIn) {
+        navigate('/login')
+      } else {
+        navigate('/profile')
+      }
+      
     } catch (e) {
       console.error(e);
     }
