@@ -2,15 +2,13 @@ import decode from 'jwt-decode';
 
 class AuthService {
   getProfile() {
-    const token = this.getToken();
-    console.log(token);
     return decode(this.getToken());
   }
 
   loggedIn() {
     const token = this.getToken();
     // If there is a token and it's not expired, return `true`
-    return token && !this.isTokenExpired(token) ? true : false;
+    return (token && !this.isTokenExpired(token)) ? true : false;
   }
 
   isTokenExpired(token) {
@@ -32,7 +30,6 @@ class AuthService {
   login(idToken) {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/profile');
-    
   }
 
   logout() {
