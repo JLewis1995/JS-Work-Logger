@@ -12,8 +12,6 @@ const Profile = () => {
 
   let previousLogs = [];
 
-  const loading = false;
-
   const meLogsResult = useQuery(QUERY_ME_LOGS, {
     fetchPolicy: "no-cache",
     variables: { email: user.data.email },
@@ -36,13 +34,9 @@ const Profile = () => {
       </div>
       <div className="card-body m-5">
         <h2>Here are your previous days' logs:</h2>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
           <PreviousLogs
             logs={previousLogs}
           />
-        )}
       </div>
     </div>
   );
