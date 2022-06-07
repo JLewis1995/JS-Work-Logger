@@ -23,8 +23,6 @@ const Profile = () => {
     previousLogs = meLogsResult.data.meLogs;
   }
 
-  // .MATCHUPS WILL NEED TO CHANGE
-
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header text-center">
