@@ -58,7 +58,7 @@ function App() {
             />
             <Route 
               path="/profile" 
-              element={<Protected><Profile /> </Protected>}
+              element={<Profile />}
             />
              <Route 
               path="/register" 
