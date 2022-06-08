@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
 import AllProfiles from "./pages/AllProfiles";
 import Protected from "./components/Protected";
+import Redirect from "./components/Redirect";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
@@ -47,7 +48,13 @@ function App() {
         <Nav />
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route path="/"
+              element={
+                <Redirect>
+                  {<Landing />}
+                </Redirect>
+              }
+            />
             <Route path="/login" element={<LogIn />} />
             <Route
               path="/profile"
