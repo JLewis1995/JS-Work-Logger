@@ -13,6 +13,19 @@ export const QUERY_ME_LOGS = gql`
   }
 `;
 
+export const QUERY_LOGS = gql`
+  query logs {
+      logs {
+        _id
+        name
+        hours_worked
+        role
+        job_site
+        comments
+    }
+  }
+`;
+
 export const QUERY_ME = gql`
   query me {
     me {
