@@ -40,7 +40,12 @@ const Nav = () => {
             <>
               <li>
                 <Link className="btn btn-lg btn-primary m-2" to="/profile">
-                  View My Profile
+                  View My Work Orders
+                </Link>
+              </li>
+              <li>
+                <Link className="btn btn-lg btn-primary m-2" to="/allProfiles">
+                  View All Work Orders
                 </Link>
               </li>
               <li>

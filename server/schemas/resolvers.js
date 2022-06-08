@@ -33,6 +33,13 @@ const resolvers = {
       }
       throw new AuthenticationError("No logs for me!");
     },
+    logs: async () => {
+      const logs = await Log.find();
+      if (logs) {
+        return logs;
+      }
+      throw new AuthenticationError("No previous logs!");
+    },
   },
   Mutation: {
     addLog: async (parent, args) => {

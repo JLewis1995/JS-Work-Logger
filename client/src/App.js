@@ -13,6 +13,7 @@ import Register from "./pages/Register";
 import CreateForm from "./pages/CreateForm";
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
+import AllProfiles from "./pages/AllProfiles";
 import Protected from "./components/Protected";
 import { setContext } from "@apollo/client/link/context";
 
@@ -54,6 +55,15 @@ function App() {
                 <Protected>
                   {" "}
                   <Profile />{" "}
+                </Protected>
+              }
+            />
+            <Route
+              path="/allProfiles"
+              element={
+                <Protected>
+                  {" "}
+                  <AllProfiles />{" "}
                 </Protected>
               }
             />
