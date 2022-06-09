@@ -1,13 +1,23 @@
 const db = require('../config/connection');
 const { Employee } = require('../models');
-
+const { Log } = require('../models');
 const employeeData = require('./employeeData.json');
+const logSeeds = require('./logsData.json')
+
+
+
 
 db.once('open', async () => {
-  await Employee.deleteMany({});
+  try {
+    await Employee.deleteMany({});
+    await Log.deleteMany({});
+    await Employee.create(employeeData);
+    await Log.create(logSeeds);
 
-  const employees = await Employee.insertMany(employeeData);
-
-  console.log('Employees seeded!');
-  process.exit(0);
+    console.log('all done!');
+    process.exit(0);
+  } catch (err) {
+    throw err;
+  }
 });
+

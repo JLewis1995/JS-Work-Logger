@@ -1,0 +1,34 @@
+[
+    {
+        "name": "bob",
+        "hours_worked": "8",
+        "role":"plumber",
+        "job_site": "1234",
+        "comments":"woo what a day"
+
+    },
+    {
+        "name": "gertrude",
+        "hours_worked": "8",
+        "role":"secretary",
+        "job_site": "1234",
+        "comments":"yikes we are behind schedule"
+
+    },
+    {
+        "name": "helen",
+        "hours_worked": "8",
+        "role":"IT",
+        "job_site": "456",
+        "comments":"having data flow issues"
+
+    },
+    {
+        "name": "jack",
+        "hours_worked": "8",
+        "role":"electrician",
+        "job_site": "456",
+        "comments":"having data flow issues"
+
+    }
+]
