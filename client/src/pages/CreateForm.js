@@ -67,6 +67,7 @@ const CreateForm = () => {
             <input
               type="text"
               name="name"
+              placeholder="Enter your name here"
               onChange={handleChange}
               value={formState.name}
             />
@@ -76,6 +77,7 @@ const CreateForm = () => {
             <input
               type="number"
               name="hours_worked"
+              placeholder="Enter Hours Here"
               onChange={handleChange}
               value={formState.hours_worked}
             />
@@ -85,6 +87,7 @@ const CreateForm = () => {
             <input
               type="text"
               name="role"
+              placeholder="Enter your role here"
               onChange={handleChange}
               value={formState.role}
             />
@@ -94,6 +97,7 @@ const CreateForm = () => {
             <input
               type="text"
               name="job_site"
+              placeholder="Enter jobsite # here"
               onChange={handleChange}
               value={formState.job_site}
             />
@@ -102,6 +106,7 @@ const CreateForm = () => {
             <label className="p-2">Comments:</label>
             <textarea
               name="comments"
+              placeholder="Enter additional notes here"
               onChange={handleChange}
               value={formState.comments}
             />

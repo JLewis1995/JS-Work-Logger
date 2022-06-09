@@ -52,7 +52,7 @@ const Register = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="Please enter your name here"
+                placeholder="Enter your name here"
                 value={formState.name}
                 onChange={handleChange}
               />
@@ -62,7 +62,7 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="Please enter your email here"
+                placeholder="Enter your email here"
                 value={formState.email}
                 onChange={handleChange}
               />
@@ -74,7 +74,7 @@ const Register = () => {
               <input
                 type="password"
                 name="password"
-                placeholder="Please enter your password here"
+                placeholder="Enter your password here"
                 value={formState.password}
                 onChange={handleChange}
               />
