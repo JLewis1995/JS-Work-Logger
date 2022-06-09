@@ -62,7 +62,7 @@ const Nav = () => {
                 </Link>
               </li>
               <li>
-                <Link className="btn btn-lg btn-light m-2" to="/register">
+                <Link className="btn btn-lg btn-primary m-2" to="/register">
                   Register
                 </Link>
               </li>
