@@ -10,7 +10,7 @@ const PreviousLogs = ({ logs }) => {
         logs.map((log) => (
           // Card to display each previous work log
           <div className="card mb-3">
-            <div className="card-body bg-light p-2">
+            <div className="card-body bg-light d-flex justify-content-center p-2">
               <span className="p-3 text-white">Name: {log.name}</span>
               <span className="p-3 text-white">Role: {log.role}</span>
               <span className="p-3 text-white">Hours Worked: {log.hours_worked}</span>
