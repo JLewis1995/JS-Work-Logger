@@ -72,34 +72,23 @@ const resolvers = {
       return { token, user };
     },
     addComment: async (parent, { logId, comment }, context) => {
-        return Log.findOneAndUpdate(
-          { _id: logId },
-          {
-            $addToSet: {
-              comments: { comment },
-            },
+      return Log.findOneAndUpdate(
+        { _id: logId },
+        {
+          $addToSet: {
+            comments: { comment },
           },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
     },
-    removeLog: async (parent, { logId }, context) => {
-      if (context.user) {
-        return Log.findOneAndDelete(
-          { _id: logId },
-          {
-            $pull: {
-              comment: {
-                _id: logId,
-              },
-            },
-          },
-          { new: true }
-        );
-      }
-      throw new AuthenticationError('You need to be logged in!');
+    removeLog: async (parent, { logId }) => {
+      return Log.findOneAndDelete(
+        { _id: logId },
+      );
     },
   },
 };
