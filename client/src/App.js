@@ -16,6 +16,7 @@ import Profile from "./pages/Profile";
 import AllProfiles from "./pages/AllProfiles";
 import Protected from "./components/Protected";
 import Redirect from "./components/Redirect";
+import SingleLog from "./pages/SingleLog"
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
@@ -77,6 +78,10 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/createform" element={<CreateForm />} />
             <Route path="*" element={<NotFound />} />
+            <Route 
+                path="/logs/:logId" 
+                element={<SingleLog />}
+              />
           </Routes>
         </div>
       </Router>
