@@ -9,7 +9,6 @@ const CreateForm = () => {
     hours_worked: "",
     role: "",
     job_site: "",
-    comments: "",
   });
 
   let navigate = useNavigate();
@@ -37,7 +36,6 @@ const CreateForm = () => {
           hours_worked: parseInt(formState.hours_worked),
           role: formState.role,
           job_site: parseInt(formState.job_site),
-          comments: formState.comments,
         },
       });
       // reset form state
@@ -46,7 +44,6 @@ const CreateForm = () => {
         hours_worked: "",
         role: "",
         job_site: "",
-        comments: "",
       });
       // return to profile after form submission
       navigate(`/profile`);
@@ -100,15 +97,6 @@ const CreateForm = () => {
               placeholder="Enter jobsite # here"
               onChange={handleChange}
               value={formState.job_site}
-            />
-          </div>
-          <div>
-            <label className="p-2">Comments:</label>
-            <textarea
-              name="comments"
-              placeholder="Enter additional notes here"
-              onChange={handleChange}
-              value={formState.comments}
             />
           </div>
           <div>

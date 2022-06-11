@@ -17,10 +17,16 @@ const logSchema = new Schema({
     type: Number,
     required: true,
   },
-  comments: {
-    type: String,
-    required: false,
-  },
+  comments: [
+    {
+      comment: {
+        type: String,
+        required: false,
+        minlength: 1,
+        maxlength: 280,
+      },
+    },
+  ],
 });
 
 const Log = model("Log", logSchema);

@@ -8,7 +8,10 @@ export const QUERY_ME_LOGS = gql`
       hours_worked
       role
       job_site
-      comments
+      comments {
+        _id
+        comment
+      }
     }
   }
 `;
@@ -21,7 +24,10 @@ export const QUERY_LOGS = gql`
         hours_worked
         role
         job_site
-        comments
+        comments {
+          _id
+          comment
+        }
     }
   }
 `;
@@ -34,7 +40,10 @@ export const QUERY_SINGLE_LOG = gql`
         hours_worked
         role
         job_site
-        comments
+        comments {
+          _id
+          comment
+        }
     }
   }
 `;
