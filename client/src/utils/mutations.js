@@ -55,3 +55,11 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const REMOVE_LOG = gql`
+  mutation removeLog($logId: ID!) {
+    removeLog(logId: $logId) {
+      _id
+    }
+  }
+`;

@@ -42,6 +42,7 @@ const typeDefs = gql`
     addLog(name: String!, hours_worked: Int!, role: String!, job_site: Int!
     ): Log
     addComment(logId: ID!, comment: String!): Log
+    removeLog(logId: ID!): Log
   }
 `;
 
