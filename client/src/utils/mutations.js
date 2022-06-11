@@ -25,14 +25,33 @@ export const LOGIN = gql`
 `;
 
 export const ADD_LOG = gql`
-  mutation addLog($name: String!, $hours_worked: Int!, $role: String!, $job_site: Int!, $comments: String) {
-    addLog(name: $name, hours_worked: $hours_worked, role: $role, job_site: $job_site, comments: $comments) {
+  mutation addLog($name: String!, $hours_worked: Int!, $role: String!, $job_site: Int!) {
+    addLog(name: $name, hours_worked: $hours_worked, role: $role, job_site: $job_site) {
       _id
       name
       hours_worked
       role
       job_site
-      comments
+      comments {
+        _id
+        comment
+      }
+    }
+  }
+`;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($logId: ID!, $comment: String!) {
+    addComment(logId: $logId, comment: $comment) {
+      _id
+      name
+      hours_worked
+      role
+      job_site
+      comments {
+        _id
+        comment
+      }
     }
   }
 `;

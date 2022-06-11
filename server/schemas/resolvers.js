@@ -71,6 +71,20 @@ const resolvers = {
 
       return { token, user };
     },
+    addComment: async (parent, { logId, comment }, context) => {
+        return Log.findOneAndUpdate(
+          { _id: logId },
+          {
+            $addToSet: {
+              comments: { comment },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+    },
   },
 };
 
