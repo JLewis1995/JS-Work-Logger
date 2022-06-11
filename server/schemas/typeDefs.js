@@ -27,6 +27,7 @@ const typeDefs = gql`
     employee: [Employee]
     me: Employee
     meLogs(email: String!): [Log]
+    log(logId: ID!): Log
   }
 
   type Mutation {

@@ -40,6 +40,9 @@ const resolvers = {
       }
       throw new AuthenticationError("No previous logs!");
     },
+    log: async (parent, { logId }) => {
+      return Log.findOne({ _id: logId });
+    },
   },
   Mutation: {
     addLog: async (parent, args) => {
