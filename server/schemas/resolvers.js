@@ -85,6 +85,22 @@ const resolvers = {
           }
         );
     },
+    removeLog: async (parent, { logId }, context) => {
+      if (context.user) {
+        return Log.findOneAndDelete(
+          { _id: logId },
+          {
+            $pull: {
+              comment: {
+                _id: logId,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 
