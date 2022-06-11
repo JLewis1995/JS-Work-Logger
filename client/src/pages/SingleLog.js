@@ -4,9 +4,11 @@ import { ADD_COMMENT } from "../utils/mutations";
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_SINGLE_LOG } from '../utils/queries';
+import { useNavigate } from "react-router-dom";
 
 
 const SingleLog = () => {
+  let navigate = useNavigate();
   const { logId } = useParams();
   const { data } = useQuery(QUERY_SINGLE_LOG, {
     // pass URL parameter
@@ -35,6 +37,7 @@ const SingleLog = () => {
       });
 
       setComment('');
+      navigate(`/profile`);
     } catch (err) {
       console.error(err);
     }
@@ -97,7 +100,16 @@ const SingleLog = () => {
               value={comment.comment}
               onChange={handleChange}
             ></textarea>
-            <p>{characterCount}</p>
+            <h3 className="p-2">Comments:</h3>
+        {log.comments &&
+        log.comments.map((log) => (
+          // Card to display each previous work log
+          <div className="card mb-3">
+            <div className="card-body p-2">
+             <p>{log.comment}</p>
+            </div>
+          </div>
+        ))}
           </div>
           <div>
             <button type="submit" className="btn btn-danger m-1">
