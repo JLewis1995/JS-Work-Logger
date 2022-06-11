@@ -27,8 +27,8 @@ export const QUERY_LOGS = gql`
 `;
 
 export const QUERY_SINGLE_LOG = gql`
-  query getSingleLog($logId: ID!) {
-      log(logId: $logId) {
+  query log ($logId: ID!) {
+      log (logId: $logId) {
         _id
         name
         hours_worked

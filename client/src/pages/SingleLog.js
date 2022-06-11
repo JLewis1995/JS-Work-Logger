@@ -11,12 +11,12 @@ const SingleLog = () => {
   const { logId } = useParams();
   console.log(logId);
 
-  const log = useQuery(QUERY_SINGLE_LOG, {
+  const { data } = useQuery(QUERY_SINGLE_LOG, {
     // pass URL parameter
     variables: { logId: logId },
   });
 
-  // const log = result?.log
+  const log = data?.log || 'none';
   console.log(`this is the return from the query:`);
   console.log(log);
 
@@ -32,7 +32,7 @@ const SingleLog = () => {
 
   let navigate = useNavigate();
 
-  const [createLog, { error, data }] = useMutation(ADD_LOG);
+  // const [createLog, { error, data }] = useMutation(ADD_LOG);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -49,15 +49,15 @@ const SingleLog = () => {
     event.preventDefault();
     try {
       // use ADD_LOG mutation to create database entry with current form state data
-      const { data } = await createLog({
-        variables: {
-          name: formState.name,
-          hours_worked: parseInt(formState.hours_worked),
-          role: formState.role,
-          job_site: parseInt(formState.job_site),
-          comments: formState.comments,
-        },
-      });
+      // const { data } = await createLog({
+      //   variables: {
+      //     name: formState.name,
+      //     hours_worked: parseInt(formState.hours_worked),
+      //     role: formState.role,
+      //     job_site: parseInt(formState.job_site),
+      //     comments: formState.comments,
+      //   },
+      // });
       // reset form state
       setFormState({
         name: "",
@@ -76,55 +76,55 @@ const SingleLog = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>Please complete the log below</h1>
+        <h1>Please UPDATE COMMENTS in the log below</h1>
       </div>
       <div className="card-body m-5">
         <form onSubmit={handleFormSubmit}>
           <div>
-            <label className="p-2">{log.name}</label>
+            <label className="p-2">Name:</label>
             <input
               type="text"
               name="name"
-              placeholder="Enter your name here"
+              placeholder={`${log.name}`}
               onChange={handleChange}
-              // value={formState.name}
-            />
+              value={formState.name}
+            disabled/>
           </div>
           <div>
-            <label className="p-2">{log.hours_worked}</label>
+            <label className="p-2">Hours Worked:</label>
             <input
               type="number"
               name="hours_worked"
-              // placeholder="Enter Hours Here"
+              placeholder={`${log.hours_worked}`}
               onChange={handleChange}
               value={formState.hours_worked}
-            />
+            disabled/>
           </div>
           <div>
-            <label className="p-2">{log.role}</label>
+            <label className="p-2">Role:</label>
             <input
               type="text"
               name="role"
-              // placeholder="Enter your role here"
+              placeholder={`${log.role}`}
               onChange={handleChange}
               value={formState.role}
-            />
+            disabled/>
           </div>
           <div>
-            <label className="p-2">{log.job_site}</label>
+            <label className="p-2">Job Site:</label>
             <input
               type="text"
               name="job_site"
-              // placeholder="Enter jobsite # here"
+              placeholder={`${log.job_site}`}
               onChange={handleChange}
               value={formState.job_site}
-            />
+            disabled/>
           </div>
           <div>
-            <label className="p-2">{log.comments}</label>
+            <label className="p-2">Comments:</label>
             <textarea
               name="comments"
-              // placeholder="Enter additional notes here"
+              placeholder={`${log.comments}`}
               onChange={handleChange}
               value={formState.comments}
             />
