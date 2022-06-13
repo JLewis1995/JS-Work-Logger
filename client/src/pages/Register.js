@@ -79,8 +79,7 @@ const Register = () => {
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <br></br>
+            <div class="d-flex justify-content-center">
               <button type="submit" className="btn btn-danger m-1">
                 Register
               </button>
