@@ -416,6 +416,8 @@ ul.square {
 
 label {
   display: inline-block;
+  width: 210px; 
+  text-align: right;
 }
 
 input,
@@ -1113,6 +1115,10 @@ a:hover {
 
 .card.card-rounded .card-header {
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+svg {
+  color: red;
 }
 
 form {

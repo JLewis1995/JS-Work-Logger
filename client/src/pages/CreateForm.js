@@ -99,7 +99,7 @@ const CreateForm = () => {
               value={formState.job_site}
             />
           </div>
-          <div>
+          <div class="d-flex justify-content-center">
             <button type="submit" className="btn btn-danger m-1">
               Submit Log
             </button>
